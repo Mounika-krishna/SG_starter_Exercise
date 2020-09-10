@@ -1,0 +1,20 @@
+---
+- command: amazon-linux-extras install epel -y
+- name: Install varnish
+  yum:
+    name: varnish
+    state: latest
+- name: Start service varnish
+  service:
+    name: varnish
+    state: started
+    enabled: yes
+
+- name: replacing the port from 6081 to 80
+  replace: 
+    path: /etc/varnish/varnish.params
+    regexp: 'VARNISH_LISTEN_PORT=6081'
+    replace: 'VARNISH_LISTEN_PORT=80'
+
+
+  notify: restart varnish

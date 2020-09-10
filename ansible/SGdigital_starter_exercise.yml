@@ -1,0 +1,24 @@
+---
+
+- name: working with varnish roles
+  hosts: varnish
+  roles:  
+    - varnish
+
+- name: working  with varnish roles
+  hosts: nodejs
+  vars:
+    node_version: 14
+  roles:
+    - nodejs
+
+
+- name: working with SGdb roles
+  hosts: mysql
+  vars_files:
+    - ./vars/SGdb_vars.yml  
+
+  roles:   
+    - SGdb 
+
+    

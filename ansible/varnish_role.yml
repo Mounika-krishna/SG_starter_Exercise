@@ -1,0 +1,6 @@
+---
+- name: working  with varnish roles
+  hosts: localhost
+  roles:
+    - nodejs
+
